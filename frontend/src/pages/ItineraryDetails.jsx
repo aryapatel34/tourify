@@ -9,7 +9,7 @@ const ItineraryDetails = () => {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['itinerary', id],
-    queryFn: () => fetchClient(`/itinerary/${id}`),
+    queryFn: () => fetchClient(`/api/itinerary/${id}`),
     enabled: !!id,
   });
 
