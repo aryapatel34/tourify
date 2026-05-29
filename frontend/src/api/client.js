@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://tourify-fwlr.onrender.com';
 
 /**
  * A custom fetch wrapper that handles JSON parsing, error throwing, and authorization.
