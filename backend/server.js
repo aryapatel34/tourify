@@ -15,7 +15,7 @@ const app = express();
 const _dirname= path.resolve();
 
 // Middlewares
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: 'https://tourify-frontend-dzne.onrender.com', credentials: true }));
 app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
