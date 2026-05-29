@@ -52,7 +52,7 @@ const Upload = () => {
         
         // 2. Generate Itinerary
         setStatus('generating');
-        const generateRes = await fetchClient(`/itinerary/generate/${uploadRes.document._id}`, {
+        const generateRes = await fetchClient(`/api/itinerary/generate/${uploadRes.document._id}`, {
           method: 'POST'
         });
 
