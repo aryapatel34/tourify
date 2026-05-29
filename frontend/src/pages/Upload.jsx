@@ -42,7 +42,7 @@ const Upload = () => {
     try {
       // 1. Upload File
       setUploadProgress(60);
-      const uploadRes = await fetchClient('/documents/upload', {
+      const uploadRes = await fetchClient('/api/documents/upload', {
         body: formData,
       });
 
