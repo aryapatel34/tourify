@@ -13,7 +13,7 @@ const Dashboard = () => {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['itineraries'],
-    queryFn: () => fetchClient('api/itinerary'),
+    queryFn: () => fetchClient('/api/itinerary'),
   });
 
   const deleteMutation = useMutation({
