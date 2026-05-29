@@ -17,7 +17,7 @@ const Dashboard = () => {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id) => fetchClient(`/itinerary/${id}`, { method: 'DELETE' }),
+    mutationFn: (id) => fetchClient(`/api/itinerary/${id}`, { method: 'DELETE' }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['itineraries'] });
     },
