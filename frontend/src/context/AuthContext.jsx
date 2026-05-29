@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const data = await fetchClient('/auth/login', {
+    const data = await fetchClient('api/auth/login', {
       body: { email, password }
     });
     
