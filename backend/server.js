@@ -12,6 +12,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
+const _dirname= path.resolve();
 
 // Middlewares
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
@@ -47,6 +48,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+app.use(express.static(path.join(_dirname,"/frontend/dist")))
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
