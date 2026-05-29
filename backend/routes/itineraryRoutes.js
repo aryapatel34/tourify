@@ -15,7 +15,7 @@ router.route('/')
 
 router.post('/generate/:documentId', protect, createItinerary);
 
-router.route('/:id')
+router.route('itinerary/:id')
   .get(protect, getItineraryById)
   .delete(protect, deleteItinerary);
 
