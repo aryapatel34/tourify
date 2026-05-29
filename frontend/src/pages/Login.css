@@ -1,0 +1,340 @@
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.login-content {
+  display: flex;
+  flex: 1;
+}
+
+/* Left Side - Hero */
+.login-hero {
+  flex: 1;
+  background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  color: var(--color-white);
+  min-height: 100%;
+}
+
+.login-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0, 61, 155, 0.8) 100%);
+}
+
+.login-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  margin-top: auto;
+  margin-bottom: 40px;
+}
+
+.login-hero-title {
+  font-family: var(--font-family-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.login-hero-subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+.login-hero-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-hero-icon {
+  width: 48px;
+  height: 48px;
+  background-color: #feaa00; /* yellow */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-hero-card-text {
+  flex: 1;
+}
+
+.login-hero-card-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.login-hero-card-desc {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* Right Side - Form */
+.login-form-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+}
+
+.login-form-inner {
+  max-width: 440px;
+  margin: auto;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-family: var(--font-family-heading);
+}
+
+.login-logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.login-title {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  color: var(--color-text-muted);
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.login-tabs {
+  display: flex;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  margin-bottom: 32px;
+}
+
+.login-tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+}
+
+.login-tab.active {
+  background: var(--color-white);
+  color: var(--color-text-main);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-main);
+}
+
+.form-forgot {
+  font-size: 12px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+}
+
+.login-btn-primary {
+  width: 100%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 32px;
+  transition: background 0.2s;
+}
+
+.login-btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.login-divider span {
+  padding: 0 16px;
+  color: var(--color-text-light);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.login-social-btns {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.login-btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 14px;
+  background: var(--color-white);
+  transition: background 0.2s;
+}
+
+.login-btn-social:hover {
+  background: var(--color-surface);
+}
+
+.login-help {
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.login-help a {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Footer */
+.login-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+  border-top: 1px solid var(--color-border-light);
+  background: var(--color-white);
+}
+
+.login-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.login-footer-logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+.login-footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.login-footer-copy {
+  font-size: 12px;
+  color: var(--color-text-light);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .login-content {
+    flex-direction: column;
+  }
+  
+  .login-hero {
+    min-height: 300px;
+    flex: none;
+    padding: 24px;
+  }
+  
+  .login-hero-title {
+    font-size: 32px;
+  }
+
+  .login-footer {
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-hero {
+    display: none; /* Hide hero on small mobile screens */
+  }
+  
+  .login-form-inner {
+    padding: 24px 16px;
+  }
+}

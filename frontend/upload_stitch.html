@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Booking Upload - Tourify</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#003d9b",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#624000",
+                        "on-surface-variant": "#434654",
+                        "primary-fixed": "#dae2ff",
+                        "surface-container-low": "#f3f4f6",
+                        "surface": "#f8f9fb",
+                        "background": "#f8f9fb",
+                        "on-tertiary-fixed-variant": "#004e5d",
+                        "inverse-primary": "#b2c5ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#004b59",
+                        "surface-dim": "#d9dadc",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container-high": "#e7e8ea",
+                        "on-secondary-container": "#684300",
+                        "on-tertiary-container": "#76e2ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-primary-fixed": "#001848",
+                        "secondary-container": "#feaa00",
+                        "on-tertiary-fixed": "#001f27",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#0052cc",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-variant": "#e1e2e4",
+                        "on-primary-container": "#c4d2ff",
+                        "secondary": "#825500",
+                        "secondary-fixed": "#ffddb3",
+                        "outline": "#737685",
+                        "secondary-fixed-dim": "#ffb950",
+                        "tertiary-fixed-dim": "#48d7f9",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#0c56d0",
+                        "tertiary-container": "#006477",
+                        "tertiary-fixed": "#afecff",
+                        "on-secondary-fixed": "#291800",
+                        "surface-container": "#edeef0",
+                        "surface-bright": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2e3132"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "xl": "64px",
+                        "max-width-desktop": "1280px",
+                        "lg": "40px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "margin-desktop": "auto"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, #003d9b 0%, #48d7f9 50%, #003d9b 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md shadow-sm fixed top-0 w-full z-50">
+<div class="flex justify-between items-center w-full px-md py-sm max-w-max-width-desktop mx-auto">
+<div class="flex items-center gap-md">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">Tourify</span>
+<div class="hidden md:flex gap-sm items-center bg-surface-container-low px-sm py-xs rounded-full">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-md w-48" placeholder="Search bookings..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">My Trips</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-md text-label-md" href="#">Upload</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Profile</a>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:bg-primary-container active:scale-95 transition-all">
+                    Plan New Trip
+                </button>
+</nav>
+<button class="md:hidden p-sm">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-xl pb-xl px-margin-mobile md:px-0">
+<div class="max-w-max-width-desktop mx-auto mt-lg grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Upload Area -->
+<section class="lg:col-span-7 space-y-md">
+<div class="mb-md">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-xs">Sync your journey</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Drag and drop your flight tickets and hotel vouchers. Our AI will handle the organization.</p>
+</div>
+<!-- Drop Zone -->
+<div class="border-2 border-dashed border-outline-variant rounded-xl bg-surface-container-lowest p-xl flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-surface-container-low transition-all duration-300 group" id="drop-zone">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[32px]">upload_file</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">Select files to upload</p>
+<p class="font-body-md text-body-md text-on-surface-variant">or drag and drop PDFs, JPEGs, or PNGs here</p>
+<input class="hidden" id="file-input" multiple="" type="file"/>
+<button class="mt-md bg-primary text-on-primary px-lg py-sm rounded-lg font-label-md text-label-md shadow-sm" onclick="document.getElementById('file-input').click()">
+                        Browse Files
+                    </button>
+</div>
+<!-- Upload Progress (Mockup for multiple files) -->
+<div class="space-y-sm">
+<div class="bg-white p-md rounded-xl shadow-sm border border-outline-variant/30 flex items-center gap-md">
+<div class="w-10 h-10 bg-error-container text-error rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-end mb-xs">
+<span class="font-label-md text-label-md text-on-surface">Lufthansa_LH123_Ticket.pdf</span>
+<span class="font-label-sm text-label-sm text-primary">85%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<button class="p-xs hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-outline">close</span>
+</button>
+</div>
+<div class="bg-white p-md rounded-xl shadow-sm border border-outline-variant/30 flex items-center gap-md opacity-60">
+<div class="w-10 h-10 bg-surface-container-high text-on-surface-variant rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">image</span>
+</div>
+<div class="flex-grow">
+<span class="font-label-md text-label-md text-on-surface">Marriott_Confirmation.jpg</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Waiting to upload...</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: AI Extraction Intelligence -->
+<aside class="lg:col-span-5 lg:sticky lg:top-24">
+<div class="glass-panel rounded-xl p-md shadow-lg overflow-hidden relative min-h-[500px]">
+<!-- Background Decoration -->
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 bg-tertiary/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-sm mb-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">AI Processing Intelligence</h2>
+</div>
+<!-- Thinking State -->
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Analyzing documents...</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant italic">Tourify AI Agent</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="animate-shimmer h-full w-full rounded-full"></div>
+</div>
+</div>
+<!-- Real-time Snippets Extraction -->
+<div class="space-y-md">
+<!-- Extraction Item 1: Flight -->
+<div class="bg-white/80 p-md rounded-lg border-l-4 border-primary shadow-sm transform translate-x-0 transition-all">
+<div class="flex justify-between items-start mb-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">flight_takeoff</span>
+<span class="font-label-md text-label-md text-primary">Flight Found</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">LH123 • Frankfurt (FRA)</p>
+<div class="flex gap-md text-label-sm text-on-surface-variant">
+<span>Departure: Oct 24, 10:20 AM</span>
+<span>Terminal: 1</span>
+</div>
+</div>
+<!-- Extraction Item 2: Hotel -->
+<div class="bg-white/80 p-md rounded-lg border-l-4 border-secondary shadow-sm">
+<div class="flex justify-between items-start mb-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">hotel</span>
+<span class="font-label-md text-label-md text-secondary">Hotel Extracted</span>
+</div>
+<span class="animate-pulse flex items-center justify-center w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface mb-xs">Marriott Berlin Potsdamer Platz</p>
+<div class="flex gap-md text-label-sm text-on-surface-variant">
+<span>Dates: Oct 24 – Oct 29</span>
+<span>Status: Extracting Address...</span>
+</div>
+</div>
+<!-- Placeholder/Scanning State -->
+<div class="border border-dashed border-outline-variant/50 p-md rounded-lg bg-surface-container/30 flex items-center justify-center gap-sm">
+<span class="material-symbols-outlined animate-spin text-outline">refresh</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Scanning additional pages...</span>
+</div>
+</div>
+<!-- Action for AI Result -->
+<div class="mt-xl pt-md border-t border-outline-variant/30">
+<button class="w-full py-md bg-secondary text-on-secondary-container font-label-md text-label-md rounded-lg flex items-center justify-center gap-sm hover:brightness-95 transition-all shadow-sm">
+<span class="material-symbols-outlined">map</span>
+                                Add All to Itinerary
+                            </button>
+<p class="mt-sm text-center font-label-sm text-label-sm text-on-surface-variant">
+                                4 items successfully identified
+                            </p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-md py-lg max-w-max-width-desktop mx-auto gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-headline-lg text-headline-lg font-black text-on-surface">Tourify</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 Tourify AI Travel Companion. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-sm text-label-sm hover:underline" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-sm text-label-sm hover:underline" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-sm text-label-sm hover:underline" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-secondary transition-all font-label-sm text-label-sm hover:underline" href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<!-- Interactive Layer: Image Section (Hero Image for vibe) -->
+<div class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none opacity-5">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-angle aerial view of a modern airport terminal at dusk, with soft indigo and golden horizon lights glowing through floor-to-ceiling windows. The scene captures the organized beauty of global travel with sleek architectural lines and a peaceful, exploratory atmosphere. Soft blue and white tones dominate the palette, aligning with a high-end corporate travel app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNYjCcmu5numMorx3ygJKT37_2TKVZO6CWRL1rnpKz_OjfTJd0Z-EWvtRk7RqEbbUEbh-m13Kmq3ElnsmA61hhyWDkCWrMqQ53xoODpJL_JiYVhy5_BayPft5C5K4uaxpQPxPgSpc8nA_LngByD3l5ktTntukf5d0wEJmZ1lAmEKNdDdNLh74cI-FIp7JXdQvoTMzB5DgZiZdoA9MOt2ZEMWOxM0WYWWhCy-xdE0duB5Zw61TGaJ-TDW4NRY_v8uyR6dLSVw_aLbA"/>
+</div>
+<script>
+        // Basic drag and drop interactivity
+        const dropZone = document.getElementById('drop-zone');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.add('border-primary', 'bg-surface-container-low');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.remove('border-primary', 'bg-surface-container-low');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            console.log('Files dropped:', files);
+            // In a real app, this would trigger the upload and AI processing
+            alert(`${files.length} file(s) dropped. Tourify AI is starting the extraction.`);
+        }
+    </script>
+</body></html>
