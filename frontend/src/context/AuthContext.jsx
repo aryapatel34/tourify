@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    const data = await fetchClient('/auth/register', {
+    const data = await fetchClient('/api/auth/register', {
       body: { name, email, password }
     });
     
